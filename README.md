@@ -1,1 +1,1 @@
-# MilionAppNode
+# GamiAppNode
