@@ -1,4 +1,5 @@
 import { v4 as uuid } from 'uuid'
+
 import { IUserEntity } from './userEntity';
 
 export class UserValue implements IUserEntity {
