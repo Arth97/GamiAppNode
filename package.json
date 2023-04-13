@@ -15,16 +15,15 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "nodemon": "^2.0.22",
-    "standard": "17.0.0",
     "ts-node": "^10.9.1",
-    "ts-standard": "12.0.2",
     "typescript": "^5.0.4"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "uuid": "^9.0.0"
   },
-  "eslintConfig": {
-    "extends": ["standard", "ts-standard"]
+  "ts-standard": {
+    "project": "./tsconfig.json"
   }
 }
