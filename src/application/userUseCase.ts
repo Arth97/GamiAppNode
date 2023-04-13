@@ -1,7 +1,7 @@
 
-import { IUserEntity } from "../domain/userEntity";
-import { IUserRepository } from "../domain/userRepository";
-import { UserValue } from "../domain/userValue";
+import { IUserEntity } from "../domain/user/userEntity";
+import { IUserRepository } from "../domain/user/userRepository";
+import { UserValue } from "../domain/user/userValue";
 
 export class UserUseCase {
 
