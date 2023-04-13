@@ -4,5 +4,5 @@ export class IGameEntity {
   dificulty: number
   time: number
   hints: number
-  challenge: IChallengeEntity
+  challenge: IChallengeEntity //TODO: Check if arrays
 }
