@@ -10,7 +10,7 @@ export class GameUseCase {
   ) { }
 
   // TODO: Maybe use concrete builder to do different type of challenges
-  public async execute(gameData) {
+  public async startNewGame(gameData) {
     const { dificulty, time, hints, challenge } = gameData
   
     const game = this.gameValue

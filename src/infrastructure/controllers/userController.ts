@@ -1,13 +1,13 @@
 import { UserUseCase } from "../../application/userUseCase"
 
 export class UserController {
-  constructor(private userUseCase: UserUseCase) {
+  constructor(private _userUseCase: UserUseCase) {
     this.getOneUser = this.getOneUser.bind(this)
   }
 
   public getOneUser = (req, res) => {
     try {
-      // const user = UserUseCase.
+      // const user = _userUseCase.
       res.status(200).send({
         status: 'OK',
         data: {}
