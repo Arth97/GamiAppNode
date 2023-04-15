@@ -13,4 +13,5 @@ const dbInit = () => {
   })
 }
 
-export default dbInit
+export default dbInit;
+

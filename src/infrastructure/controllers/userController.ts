@@ -1,7 +1,7 @@
-import { UserUseCase } from "../../application/userUseCase"
+import { UserUseCase } from '../../application/userUseCase'
 
 export class UserController {
-  constructor(private _userUseCase: UserUseCase) {
+  constructor (private _userUseCase: UserUseCase) {
     this.getOneUser = this.getOneUser.bind(this)
   }
 
@@ -19,12 +19,12 @@ export class UserController {
       })
     }
   }
-  
+
   public createNewUser = (req, res) => {
-  
+
   }
-  
+
   public deleteOneUser = (req, res) => {
-  
+
   }
 }
