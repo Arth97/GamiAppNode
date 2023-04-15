@@ -1,4 +1,4 @@
 export interface IChallengeEntity {
-  points: number,
+  points: number
   type: number
 }

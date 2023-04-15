@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
-import { IUserEntity } from './userEntity';
+import { IUserEntity } from './userEntity'
 
 export class UserValue implements IUserEntity {
   uuid: String
@@ -13,4 +13,3 @@ export class UserValue implements IUserEntity {
     this.email = email
   }
 }
-

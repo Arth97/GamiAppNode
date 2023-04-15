@@ -27,5 +27,8 @@
   },
   "ts-standard": {
     "project": "./tsconfig.json"
+  },
+  "eslintConfig": {
+    "extends": "ts-standard"
   }
 }

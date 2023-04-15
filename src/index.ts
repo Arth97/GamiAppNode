@@ -14,7 +14,7 @@ app.use(express.json())
 app.use('/api/users', userRoutes)
 // app.use('/api/games', gameRoutes)
 
-dbInit();
+dbInit()
 app.listen(PORT, () => {
   console.log('🚀Listening on port:', PORT)
 })
