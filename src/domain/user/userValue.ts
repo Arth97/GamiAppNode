@@ -3,11 +3,11 @@ import { v4 as uuid } from 'uuid'
 import { IUserEntity } from './userEntity'
 
 export class UserValue implements IUserEntity {
-  uuid: String
-  username: String
-  email: String
+  uuid: string
+  username: string
+  email: string
 
-  constructor (username: String, email: String) {
+  constructor (username: string, email: string) {
     this.uuid = uuid()
     this.username = username
     this.email = email

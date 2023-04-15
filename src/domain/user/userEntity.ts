@@ -1,5 +1,5 @@
 export interface IUserEntity {
-  uuid: String
-  username: String
-  email: String
+  uuid: string
+  username: string
+  email: string
 }

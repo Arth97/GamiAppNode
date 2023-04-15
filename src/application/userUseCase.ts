@@ -1,13 +1,12 @@
 
-import { IUserEntity } from "../domain/user/userEntity";
-import { IUserRepository } from "../domain/user/userRepository";
-import { UserValue } from "../domain/user/userValue";
+import { IUserEntity } from '../domain/user/userEntity'
+import { IUserRepository } from '../domain/user/userRepository'
+import { UserValue } from '../domain/user/userValue'
 
 export class UserUseCase {
-
   constructor (private readonly _userRepository: IUserRepository) { }
 
-  public async getOneUser(username: String) {
+  public async getOneUser (username: string) {
     try {
       const user = await this._userRepository.getOneUser(username)
       return user
@@ -16,7 +15,7 @@ export class UserUseCase {
     }
   }
 
-  public async createNewUser(username: String, email: String) {
+  public async createNewUser (username: string, email: string) {
     try {
       const userToInsert: IUserEntity = new UserValue(username, email)
       const newUser = this._userRepository.createNewUser(userToInsert)
@@ -26,7 +25,7 @@ export class UserUseCase {
     }
   }
 
-  public async deleteOneUser(userId: number) {
+  public async deleteOneUser (userId: number) {
     try {
       const deletedUser = this._userRepository.deleteOneUser(userId)
       return deletedUser
