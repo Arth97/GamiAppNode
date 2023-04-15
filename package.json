@@ -1,5 +1,5 @@
 {
-  "name": "milionappnode",
+  "name": "gamiappnode",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -15,7 +15,10 @@
   "devDependencies": {
     "@types/node": "18.15.11",
     "@types/uuid": "9.0.1",
+    "@typescript-eslint/eslint-plugin": "5.58.0",
+    "@typescript-eslint/parser": "5.58.0",
     "nodemon": "2.0.22",
+    "standard": "17.0.0",
     "ts-node": "10.9.1",
     "typescript": "5.0.4"
   },
@@ -25,10 +28,14 @@
     "mongoose": "7.0.3",
     "uuid": "9.0.0"
   },
-  "ts-standard": {
-    "project": "./tsconfig.json"
-  },
   "eslintConfig": {
-    "extends": "ts-standard"
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "standard"
+    ]
   }
 }
