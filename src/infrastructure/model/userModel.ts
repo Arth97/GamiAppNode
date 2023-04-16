@@ -7,12 +7,12 @@ const userSchema = new Schema<IUserEntity>({
     unique: true
   },
   username: {
-    type: String,
-    unique: true
+    type: String
+    // unique: true
   },
   email: {
-    type: String,
-    unique: true
+    type: String
+    // unique: true
   }
 })
 

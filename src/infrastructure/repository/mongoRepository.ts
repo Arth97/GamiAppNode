@@ -4,6 +4,9 @@ import { IUserEntity } from '../../domain/user/userEntity'
 import { IUserRepository } from '../../domain/user/userRepository'
 import UserModel from '../model/userModel'
 
+/**
+*   USER REPOSITORY
+*/
 class MongoUserRepository implements IUserRepository {
   getOneUser (usrname: string): Promise<IUserEntity> {
     try {
@@ -15,7 +18,15 @@ class MongoUserRepository implements IUserRepository {
   }
 
   createNewUser (user: IUserEntity): Promise<IUserEntity> {
-    throw new Error('Method not implemented.')
+    try {
+      const userCreated = UserModel.create(user)
+      return userCreated
+    } catch (err) {
+      throw new Error({
+        status: 500,
+        message: err?.message || err
+      })
+    }
   }
 
   deleteOneUser (userId: number): Promise<boolean> {
@@ -23,13 +34,16 @@ class MongoUserRepository implements IUserRepository {
   }
 }
 
+/**
+*   GAME REPOSITORY
+*/
 class MongoGameRepository implements IGameRepository {
   startNewGame (game: any): Promise<IGameEntity> {
     throw new Error('Method not implemented.')
   }
 }
 
-export default {
+export {
   MongoUserRepository,
   MongoGameRepository
 }

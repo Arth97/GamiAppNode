@@ -16,5 +16,5 @@ app.use('/api/users', userRoutes)
 
 dbInit()
 app.listen(PORT, () => {
-  console.log('🚀Listening on port:', PORT)
+  console.log('🚀 Listening on port:', PORT)
 })
