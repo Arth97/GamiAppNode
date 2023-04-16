@@ -1,53 +1,55 @@
 import { v4 as uuid } from 'uuid'
 
-import { IChallengeEntity } from "../challenge/challengeEntity";
-import { IGameEntity } from "./gameEntity";
+import { IGameEntity } from './gameEntity'
 
-export class GameValue /*implements IGameEntity*/ {
-
+export class GameValue /* implements IGameEntity */ {
   game: IGameEntity
 
-  constructor() {
+  constructor () {
     this.game = new IGameEntity()
+    this.game.uuid = uuid()
   }
 
-  setDificutly(dificulty) {
+  setDificutly (dificulty) {
     this.game.dificulty = dificulty
     return this
   }
 
-  setTime(time) {
+  setTime (time) {
     this.game.time = time
     return this
   }
 
-  setHints(hints) {
+  setHints (hints) {
     this.game.hints = hints
     return this
   }
 
-  setChallenge(challenge) {
-    this.game.challenge = challenge
+  setChallenges (challenges) {
+    this.game.challenges = challenges
     return this
   }
 
-  build() {
-    return this.game;
+  setChallengeTypes (challengeTypes) {
+    this.game.challengeTypes = challengeTypes
+    return this
   }
 
+  build () {
+    return this.game
+  }
 }
-
-
 
 /*  Without builder
 export class GameValue implements IGameEntity {
-  // id TBD
+  uuid: string
   dificulty: number;
   time: number;
   hints: number;
   challenge: IChallengeEntity;
 
   constructor(dificulty: number, time: number, hints: number, challenge: IChallengeEntity) {
+    this.uuid = uuid()
     this.dificulty = dificulty
     this.time = time
     this.hints = hints

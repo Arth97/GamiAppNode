@@ -1,8 +1,8 @@
-import { IChallengeEntity } from '../challenge/challengeEntity'
-
 export class IGameEntity {
+  uuid: string
   dificulty: number
   time: number
   hints: number
-  challenge: IChallengeEntity // TODO: Check if arrays
+  challenges: number[]
+  challengeTypes: number
 }
