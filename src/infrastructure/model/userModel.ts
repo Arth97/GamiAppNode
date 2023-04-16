@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose'
 import { IUserEntity } from '../../domain/user/userEntity'
 
-const userSchema = new Schema<IUserEntity>({
+const UserSchema = new Schema<IUserEntity>({
   uuid: {
     type: String,
     unique: true
@@ -16,6 +16,6 @@ const userSchema = new Schema<IUserEntity>({
   }
 })
 
-const UserModel = model<IUserEntity>('User', userSchema)
+const UserModel = model<IUserEntity>('User', UserSchema)
 
 export default UserModel

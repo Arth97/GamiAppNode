@@ -11,7 +11,8 @@ const userRepo = new MongoUserRepository()
 const userUseCase = new UserUseCase(userRepo)
 const userController = new UserController(userUseCase)
 
-router.get('/', userController.getOneUser)
+router.get('/:username', userController.getOneUser)
 router.post('/', userController.createNewUser)
+router.delete('/:username', userController.deleteOneUser)
 
 export default router

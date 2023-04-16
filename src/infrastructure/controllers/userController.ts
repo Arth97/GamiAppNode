@@ -5,9 +5,9 @@ export class UserController {
     this._userUseCase = _userUseCase
   }
 
-  public getOneUser = (req, res) => {
+  public getOneUser = async (req, res) => {
     try {
-      const user = this._userUseCase.getOneUser(req.query)
+      const user = await this._userUseCase.getOneUser(req.params)
       res.status(200).send({
         status: 'OK',
         data: { data: user }
@@ -21,11 +21,8 @@ export class UserController {
   }
 
   public createNewUser = async (req, res) => {
-    console.log('TEST')
-    console.log('req.body', req.body)
     try {
       const user = await this._userUseCase.createNewUser(req.body)
-      console.log('USER', user)
       res.status(200).send({
         status: 'OK',
         data: { data: user }
@@ -38,12 +35,12 @@ export class UserController {
     }
   }
 
-  public deleteOneUser = (req, res) => {
+  public deleteOneUser = async (req, res) => {
     try {
-      // const user = _userUseCase.
+      const deletedUser = await this._userUseCase.deleteOneUser(req.params)
       res.status(200).send({
         status: 'OK',
-        data: {}
+        data: { data: deletedUser }
       })
     } catch (err) {
       res.status(err?.status || 500).send({
