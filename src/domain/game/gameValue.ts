@@ -1,5 +1,3 @@
-import { v4 as uuid } from 'uuid'
-
 import { IGameEntity } from './gameEntity'
 
 export class GameValue /* implements IGameEntity */ {
@@ -7,7 +5,6 @@ export class GameValue /* implements IGameEntity */ {
 
   constructor () {
     this.game = new IGameEntity()
-    this.game.uuid = uuid()
   }
 
   setDificutly (dificulty) {
@@ -42,14 +39,12 @@ export class GameValue /* implements IGameEntity */ {
 
 /*  Without builder
 export class GameValue implements IGameEntity {
-  uuid: string
   dificulty: number;
   time: number;
   hints: number;
   challenge: IChallengeEntity;
 
   constructor(dificulty: number, time: number, hints: number, challenge: IChallengeEntity) {
-    this.uuid = uuid()
     this.dificulty = dificulty
     this.time = time
     this.hints = hints

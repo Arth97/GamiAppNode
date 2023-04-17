@@ -57,7 +57,7 @@ class MongoGameRepository implements IGameRepository {
 
   startNewGame (gameId): Promise<IGameEntity> {
     try {
-      const game = GameModel.findOne({ uuid: gameId })
+      const game = GameModel.findOne({ _id: gameId })
       return game
     } catch (err) {
       console.log('err', err)
