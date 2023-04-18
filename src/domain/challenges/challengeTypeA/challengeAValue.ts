@@ -1,4 +1,4 @@
-import { IChallengeEntity } from './challengeEntity'
+import { IChallengeEntity } from './challengeAEntity'
 
 export class ChallengeValue implements IChallengeEntity {
   points: number
