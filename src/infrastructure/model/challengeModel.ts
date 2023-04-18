@@ -1,15 +1,21 @@
 import { Schema, model } from 'mongoose'
-import { IChallengeEntity } from '../../domain/challenges/challengeTypeA/challengeAEntity'
 
-const ChallengeSchema = new Schema<IChallengeEntity>({
+const ChallengeSchema = new Schema({
   points: {
     type: Number,
     required: true
   },
   type: {
-    type: Number,
+    type: String,
     required: true
-  }
+  },
+  question: String,
+  answer: Boolean,
+  answer1: String,
+  answer2: String,
+  answer3: String,
+  answer4: String
+
 })
 
 const ChallengeModel = model('Challenge', ChallengeSchema)
