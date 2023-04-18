@@ -18,9 +18,19 @@ export class UserUseCase {
     }
   }
 
+  public getUserPoints (username: string) {
+    // const user = this._userRepository.getOneUser(username)
+    this._userRepository.getOneUser(username) // TODO: Test if const is needed
+      .then((res) => { return res.points })
+      .catch((err) => {
+        console.log(err)
+        throw err
+      })
+  }
+
   public createNewUser ({ username, email }) {
     try {
-      const userToInsert: IUserEntity = new UserValue(username, email)
+      const userToInsert: IUserEntity = new UserValue(username, email, 0)
       const newUser = this._userRepository.createNewUser(userToInsert)
       return newUser
     } catch (err) {
