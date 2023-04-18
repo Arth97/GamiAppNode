@@ -1,4 +1,4 @@
-import { IChallengeEntity } from './challengeBEntity'
+import { IChallengeEntity } from './challengeEntity'
 
 export interface IChallengeRepository {
   getAllChallenges(): Promise<IChallengeEntity[]>
