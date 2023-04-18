@@ -1,4 +1,6 @@
-export interface IChallengeEntity {
+export interface IChallengeBEntity {
   points: number
-  type: number
+  type: string
+  question: string
+  answer: boolean
 }
