@@ -1,4 +1,4 @@
-import { IChallengeEntity } from '../domain/challenges/challengeTypeA/challengeAEntity'
+import { IChallengeEntity } from '../domain/challenges/challengeEntity'
 import { IChallengeRepository } from '../domain/challenges/challengeRepository'
 
 export class ChallengeUseCase {

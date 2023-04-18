@@ -11,6 +11,7 @@ import ChallengeModel from '../model/challengeModel'
 /**
 *   USER REPOSITORY
 */
+// #region
 class MongoUserRepository implements IUserRepository {
   async getOneUser (usrname: string): Promise<IUserEntity> {
     try {
@@ -43,10 +44,12 @@ class MongoUserRepository implements IUserRepository {
     }
   }
 }
+// #endregion
 
 /**
 *   GAME REPOSITORY
 */
+// #region
 class MongoGameRepository implements IGameRepository {
   getAllGames (): Promise<IGameEntity[]> {
     try {
@@ -78,10 +81,12 @@ class MongoGameRepository implements IGameRepository {
     }
   }
 }
+// #endregion
 
 /**
 *   CHALLENGE REPOSITORY
 */
+// #region
 class MongoChallengeRepository implements IChallengeRepository {
   getAllChallenges (): Promise<IChallengeEntity[]> {
     let challenges
@@ -123,6 +128,7 @@ class MongoChallengeRepository implements IChallengeRepository {
     return response
   }
 }
+// #endregion
 
 export {
   MongoUserRepository,
