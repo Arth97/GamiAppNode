@@ -1,5 +1,5 @@
-import { IChallengeEntity } from '../domain/challenge/challengeEntity'
-import { IChallengeRepository } from '../domain/challenge/challengeRepository'
+import { IChallengeEntity } from '../domain/challenges/challengeTypeA/challengeAEntity'
+import { IChallengeRepository } from '../domain/challenges/challengeRepository'
 
 export class ChallengeUseCase {
   constructor (private readonly _challengeRepository: IChallengeRepository) {

@@ -1,5 +1,5 @@
-import { IChallengeEntity } from '../../domain/challenge/challengeEntity'
-import { IChallengeRepository } from '../../domain/challenge/challengeRepository'
+import { IChallengeEntity } from '../../domain/challenges/challengeTypeA/challengeAEntity'
+import { IChallengeRepository } from '../../domain/challenges/challengeTypeA/challengeARepository'
 import { IGameEntity } from '../../domain/game/gameEntity'
 import { IGameRepository } from '../../domain/game/gameRepository'
 import { IUserEntity } from '../../domain/user/userEntity'

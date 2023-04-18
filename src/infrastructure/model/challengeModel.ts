@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { IChallengeEntity } from '../../domain/challenge/challengeEntity'
+import { IChallengeEntity } from '../../domain/challenges/challengeTypeA/challengeAEntity'
 
 const ChallengeSchema = new Schema<IChallengeEntity>({
   points: {
