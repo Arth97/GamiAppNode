@@ -1,8 +1,9 @@
-import { IChallengeEntity } from "./challengeEntity";
+import { IChallengeEntity } from './challengeEntity'
 
 export interface IChallengeRepository {
-  getChallengeById(): Promise<IChallengeEntity>
+  getAllChallenges(): Promise<IChallengeEntity[]>
+  getAllChallengesByType(type: number): Promise<IChallengeEntity[]>
   createChallenge(): Promise<IChallengeEntity>
   updateChallenge(): Promise<IChallengeEntity>
-  deleteChallenge(): Promise<Boolean>
+  deleteChallenge(): Promise<boolean>
 }

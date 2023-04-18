@@ -1,43 +1,49 @@
-import { IChallengeEntity } from "../domain/challenge/challengeEntity";
-import { IChallengeRepository } from "../domain/challenge/challengeRepository";
+import { IChallengeEntity } from '../domain/challenge/challengeEntity'
+import { IChallengeRepository } from '../domain/challenge/challengeRepository'
 
 export class ChallengeUseCase {
-  
-  constructor(private readonly _challengeRepository: IChallengeRepository) { }
+  constructor (private readonly _challengeRepository: IChallengeRepository) {
+    this._challengeRepository = _challengeRepository
+  }
 
-  public async getChallengeById(): Promise<IChallengeEntity> {
+  public getAllChallenges (): Promise<IChallengeEntity[]> {
+    let challenges
+    this._challengeRepository.getAllChallenges(/* Parameters TBD */)
+      .then((res) => { challenges = res })
+      .catch((err) => { throw err })
+    return challenges
+  }
+
+  public getAllChallengesByType (type): Promise<IChallengeEntity[]> {
+    let challenges
+    this._challengeRepository.getAllChallengesByType(type)
+      .then((res) => { challenges = res })
+      .catch((err) => { throw err })
+    return challenges
+  }
+
+  public createChallenge (): Promise<IChallengeEntity> {
+    let createdChallenge
+    this._challengeRepository.createChallenge(/* Parameters TBD */)
+      .then((res) => { createdChallenge = res })
+      .catch((err) => { throw err })
+    return createdChallenge
+  }
+
+  public updateChallenge (): Promise<IChallengeEntity> {
+    let updatedChallenge
+    this._challengeRepository.updateChallenge(/* Parameters TBD */)
+      .then((res) => { updatedChallenge = res })
+      .catch((err) => { throw err })
+    return updatedChallenge
+  }
+
+  public async deleteChallenge (): Promise<boolean> {
     try {
-      const challenge = this._challengeRepository.getChallengeById(/*Parameters TBD*/)
-      return challenge
+      return await this._challengeRepository.deleteChallenge(/* Parameters TBD */)
     } catch (err) {
+      console.log('err', err)
       throw err
     }
   }
-
-  public async createChallenge(): Promise<IChallengeEntity> {
-    try {
-      const createdChallenge = this._challengeRepository.createChallenge(/*Parameters TBD*/)
-      return createdChallenge
-    } catch (err) {
-      throw err
-    }
-  }
-
-  public async updateChallenge(): Promise<IChallengeEntity> {
-    try {
-      const updatedChallenge = this._challengeRepository.updateChallenge(/*Parameters TBD*/)
-      return updatedChallenge
-    } catch (err) {
-      throw err
-    }
-  }
-
-  public async deleteChallenge(): Promise<Boolean> {
-    try {
-      return this._challengeRepository.deleteChallenge(/*Parameters TBD*/)
-    } catch (err) {
-      throw err
-    }
-  }
-
 }

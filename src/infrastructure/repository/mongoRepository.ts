@@ -1,9 +1,12 @@
+import { IChallengeEntity } from '../../domain/challenge/challengeEntity'
+import { IChallengeRepository } from '../../domain/challenge/challengeRepository'
 import { IGameEntity } from '../../domain/game/gameEntity'
 import { IGameRepository } from '../../domain/game/gameRepository'
 import { IUserEntity } from '../../domain/user/userEntity'
 import { IUserRepository } from '../../domain/user/userRepository'
 import GameModel from '../model/gameModel'
 import UserModel from '../model/userModel'
+import ChallengeModel from '../model/challengeModel'
 
 /**
 *   USER REPOSITORY
@@ -76,7 +79,53 @@ class MongoGameRepository implements IGameRepository {
   }
 }
 
+/**
+*   CHALLENGE REPOSITORY
+*/
+class MongoChallengeRepository implements IChallengeRepository {
+  getAllChallenges (): Promise<IChallengeEntity[]> {
+    let challenges
+    ChallengeModel.find(/* Parameters TBD */)
+      .then((res) => { challenges = res })
+      .catch((err) => { throw err })
+    return challenges
+  }
+
+  getAllChallengesByType (tpe): Promise<IChallengeEntity[]> {
+    let challenges
+    ChallengeModel.find({ type: tpe })
+      .then((res) => { challenges = res })
+      .catch((err) => { throw err })
+    return challenges
+  }
+
+  createChallenge (): Promise<IChallengeEntity> {
+    let createdChallenge
+    ChallengeModel.create(/* Parameters TBD */)
+      .then((res) => { createdChallenge = res })
+      .catch((err) => { throw err })
+    return createdChallenge
+  }
+
+  updateChallenge (): Promise<IChallengeEntity> {
+    let updatedChallenge
+    ChallengeModel.updateOne(/* Parameters TBD */)
+      .then((res) => { updatedChallenge = res })
+      .catch((err) => { throw err })
+    return updatedChallenge
+  }
+
+  deleteChallenge (): Promise<boolean> {
+    let response
+    ChallengeModel.deleteOne(/* Parameters TBD */)
+      .then((res) => { response = res })
+      .catch((err) => { throw err })
+    return response
+  }
+}
+
 export {
   MongoUserRepository,
-  MongoGameRepository
+  MongoGameRepository,
+  MongoChallengeRepository
 }
