@@ -1,3 +1,5 @@
+import mongoose from 'mongoose'
+
 import { IChallengeEntity } from '../../domain/challenges/challengeEntity'
 import { IChallengeRepository } from '../../domain/challenges/challengeRepository'
 import { IGameEntity } from '../../domain/game/gameEntity'
@@ -117,7 +119,8 @@ class MongoChallengeRepository implements IChallengeRepository {
   }
 
   deleteChallenge (challengeId): Promise<unknown> {
-    return ChallengeModel.deleteOne({ _id: challengeId })
+    const idToDelete = new mongoose.Types.ObjectId(challengeId)
+    return ChallengeModel.deleteOne({ _id: idToDelete })
       .then((res) => { console.log('typ2', typeof res) })
       .catch((err) => { throw err })
   }

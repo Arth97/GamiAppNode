@@ -11,6 +11,6 @@ const challengeController = new ChallengeController(challengeUseCase)
 
 router.get('/', challengeController.getAllChallenges)
 router.post('/', challengeController.createChallenge)
-router.delete('/:challenge', challengeController.deleteChallenge)
+router.delete('/:challengeId', challengeController.deleteChallenge)
 
 export default router

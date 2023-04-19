@@ -47,7 +47,7 @@ export class ChallengeUseCase {
       .catch((err) => { throw err })
   }
 
-  public async deleteChallenge (challengeId): Promise<unknown> {
+  public async deleteChallenge ({ challengeId }): Promise<unknown> {
     return this._challengeRepository.deleteChallenge(challengeId)
       .then((res) => { return res })
       .catch((err) => { throw err })
