@@ -38,7 +38,7 @@ export class ChallengeUseCase {
     return updatedChallenge
   }
 
-  public async deleteChallenge (): Promise<boolean> {
+  public async deleteChallenge (challengeId): Promise<boolean> {
     try {
       return await this._challengeRepository.deleteChallenge(/* Parameters TBD */)
     } catch (err) {
