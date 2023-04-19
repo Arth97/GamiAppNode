@@ -104,28 +104,22 @@ class MongoChallengeRepository implements IChallengeRepository {
     return challenges
   }
 
-  createChallenge (): Promise<IChallengeEntity> {
-    let createdChallenge
-    ChallengeModel.create(/* Parameters TBD */)
-      .then((res) => { createdChallenge = res })
+  createChallenge (challenge): Promise<IChallengeEntity> {
+    return ChallengeModel.create(challenge)
+      .then((createdChallenge) => { return createdChallenge })
       .catch((err) => { throw err })
-    return createdChallenge
   }
 
-  updateChallenge (): Promise<IChallengeEntity> {
-    let updatedChallenge
-    ChallengeModel.updateOne(/* Parameters TBD */)
-      .then((res) => { updatedChallenge = res })
+  updateChallenge (): Promise<unknown> {
+    return ChallengeModel.updateOne(/* Parameters TBD */)
+      .then((updatedChallenge) => { return updatedChallenge })
       .catch((err) => { throw err })
-    return updatedChallenge
   }
 
-  deleteChallenge (): Promise<boolean> {
-    let response
-    ChallengeModel.deleteOne(/* Parameters TBD */)
-      .then((res) => { response = res })
+  deleteChallenge (challengeId): Promise<unknown> {
+    return ChallengeModel.deleteOne({ _id: challengeId })
+      .then((res) => { console.log('typ2', typeof res) })
       .catch((err) => { throw err })
-    return response
   }
 }
 // #endregion

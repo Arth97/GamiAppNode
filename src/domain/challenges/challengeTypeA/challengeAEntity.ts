@@ -5,4 +5,5 @@ export interface IChallengeAEntity extends IChallengeEntity {
   answer2: string
   answer3: string
   answer4: string
+  correctAnswer: string
 }

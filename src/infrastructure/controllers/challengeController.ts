@@ -5,9 +5,10 @@ export class ChallengeController {
     this._challengeUseCase = _challengeUseCase
   }
 
-  public getAllChallenges = (req, res) => {
+  public getAllChallenges = async (req, res) => {
     try {
-      const allChallenges = this._challengeUseCase.getAllChallenges()
+      const allChallenges = await this._challengeUseCase.getAllChallenges()
+      console.log('allChallenges', allChallenges)
       res.status(200).send({
         status: 'OK',
         data: { data: allChallenges }
@@ -21,32 +22,34 @@ export class ChallengeController {
   }
 
   public createChallenge = (req, res) => {
-    try {
-      const game = this._challengeUseCase.createChallenge()
-      res.status(200).send({
-        status: 'OK',
-        data: { data: game }
+    this._challengeUseCase.createChallenge(req.body)
+      .then((challenge) => {
+        res.status(200).send({
+          status: 'OK',
+          data: { data: challenge }
+        })
       })
-    } catch (err) {
-      res.status(err?.status || 500).send({
-        status: 'FAILED',
-        data: { error: err?.message || err }
+      .catch((err) => {
+        res.status(err?.status || 500).send({
+          status: 'FAILED',
+          data: { error: err?.message || err }
+        })
       })
-    }
   }
 
-  public deleteChallenge = async (req, res) => {
-    try {
-      const deletedUser = await this._challengeUseCase.deleteChallenge(req.params)
-      res.status(200).send({
-        status: 'OK',
-        data: { data: deletedUser }
+  public deleteChallenge = (req, res) => {
+    this._challengeUseCase.deleteChallenge(req.params)
+      .then((deletedChallenge) => {
+        res.status(200).send({
+          status: 'OK',
+          data: { data: deletedChallenge }
+        })
       })
-    } catch (err) {
-      res.status(err?.status || 500).send({
-        status: 'FAILED',
-        data: { error: err?.message || err }
+      .catch((err) => {
+        res.status(err?.status || 500).send({
+          status: 'FAILED',
+          data: { error: err?.message || err }
+        })
       })
-    }
   }
 }

@@ -9,13 +9,16 @@ const ChallengeSchema = new Schema({
     type: String,
     required: true
   },
-  question: String,
+  question: {
+    type: String,
+    required: true
+  },
   answer: Boolean,
   answer1: String,
   answer2: String,
   answer3: String,
-  answer4: String
-
+  answer4: String,
+  correctAnswer: String
 })
 
 const ChallengeModel = model('Challenge', ChallengeSchema)

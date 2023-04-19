@@ -1,5 +1,7 @@
 import { IChallengeEntity } from '../domain/challenges/challengeEntity'
+import { ChallengeAValue } from '../domain/challenges/challengeTypeA/challengeAValue'
 import { IChallengeRepository } from '../domain/challenges/challengeRepository'
+import { ChallengeBValue } from '../domain/challenges/challengeTypeB/challengeBValue'
 
 export class ChallengeUseCase {
   constructor (private readonly _challengeRepository: IChallengeRepository) {
@@ -22,28 +24,32 @@ export class ChallengeUseCase {
     return challenges
   }
 
-  public createChallenge (): Promise<IChallengeEntity> {
-    let createdChallenge
-    this._challengeRepository.createChallenge(/* Parameters TBD */)
-      .then((res) => { createdChallenge = res })
-      .catch((err) => { throw err })
-    return createdChallenge
-  }
+  public createChallenge (body): Promise<IChallengeEntity> {
+    let challenge: unknown
 
-  public updateChallenge (): Promise<IChallengeEntity> {
-    let updatedChallenge
-    this._challengeRepository.updateChallenge(/* Parameters TBD */)
-      .then((res) => { updatedChallenge = res })
-      .catch((err) => { throw err })
-    return updatedChallenge
-  }
-
-  public async deleteChallenge (challengeId): Promise<boolean> {
-    try {
-      return await this._challengeRepository.deleteChallenge(/* Parameters TBD */)
-    } catch (err) {
-      console.log('err', err)
-      throw err
+    if (body.type === 'A') {
+      const { points, type, question, answer1, answer2, answer3, answer4, correctAnswer } = body
+      challenge = new ChallengeAValue(points, type, question, answer1, answer2, answer3, answer4, correctAnswer)
+    } else if (body.type === 'B') {
+      const { points, type, question, answer } = body
+      challenge = new ChallengeBValue(points, type, question, answer)
+      console.log('challenge', challenge)
     }
+
+    return this._challengeRepository.createChallenge(challenge)
+      .then((createdChallenge) => { return createdChallenge })
+      .catch((err) => { throw err })
+  }
+
+  public updateChallenge (): Promise<unknown> {
+    return this._challengeRepository.updateChallenge(/* Parameters TBD */)
+      .then((updatedChallenge) => { return updatedChallenge })
+      .catch((err) => { throw err })
+  }
+
+  public async deleteChallenge (challengeId): Promise<unknown> {
+    return this._challengeRepository.deleteChallenge(challengeId)
+      .then((res) => { return res })
+      .catch((err) => { throw err })
   }
 }
