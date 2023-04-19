@@ -39,6 +39,7 @@ export class GameUseCase {
     return game
   }
 
+  // TODO: Try to do builder pattern here
   public createNewGame (gameData) {
     const { time, hints, challengesNumber } = gameData
     const game = new GameValue(time, hints, challengesNumber)
