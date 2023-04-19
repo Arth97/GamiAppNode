@@ -33,7 +33,6 @@ export class ChallengeUseCase {
     } else if (body.type === 'B') {
       const { points, type, question, answer } = body
       challenge = new ChallengeBValue(points, type, question, answer)
-      console.log('challenge', challenge)
     }
 
     return this._challengeRepository.createChallenge(challenge)

@@ -121,7 +121,7 @@ class MongoChallengeRepository implements IChallengeRepository {
   deleteChallenge (challengeId): Promise<unknown> {
     const idToDelete = new mongoose.Types.ObjectId(challengeId)
     return ChallengeModel.deleteOne({ _id: idToDelete })
-      .then((res) => { console.log('typ2', typeof res) })
+      .then((res) => { return res })
       .catch((err) => { throw err })
   }
 }

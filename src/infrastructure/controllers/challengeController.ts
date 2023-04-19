@@ -8,7 +8,6 @@ export class ChallengeController {
   public getAllChallenges = async (req, res) => {
     try {
       const allChallenges = await this._challengeUseCase.getAllChallenges()
-      console.log('allChallenges', allChallenges)
       res.status(200).send({
         status: 'OK',
         data: { data: allChallenges }
