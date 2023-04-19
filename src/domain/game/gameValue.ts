@@ -1,15 +1,10 @@
 import { IGameEntity } from './gameEntity'
 
-export class GameValue /* implements IGameEntity */ {
+export class GameBuilder {
   game: IGameEntity
 
   constructor () {
     this.game = new IGameEntity()
-  }
-
-  setDificutly (dificulty) {
-    this.game.dificulty = dificulty
-    return this
   }
 
   setTime (time) {
@@ -22,13 +17,13 @@ export class GameValue /* implements IGameEntity */ {
     return this
   }
 
-  setChallenges (challenges) {
-    this.game.challenges = challenges
+  setChallenges (challengesNumber) {
+    this.game.challengesNumber = challengesNumber
     return this
   }
 
-  setChallengeTypes (challengeTypes) {
-    this.game.challengeTypes = challengeTypes
+  setChallengeType (type) {
+    this.game.challengeType = type
     return this
   }
 
@@ -37,18 +32,14 @@ export class GameValue /* implements IGameEntity */ {
   }
 }
 
-/*  Without builder
 export class GameValue implements IGameEntity {
-  dificulty: number;
-  time: number;
-  hints: number;
-  challenge: IChallengeEntity;
+  time: number
+  hints: number
+  challengesNumber: number
 
-  constructor(dificulty: number, time: number, hints: number, challenge: IChallengeEntity) {
-    this.dificulty = dificulty
+  constructor (time: number, hints: number, challengesNumber: number) {
     this.time = time
     this.hints = hints
-    this.challenge = challenge
+    this.challengesNumber = challengesNumber
   }
 }
-*/
