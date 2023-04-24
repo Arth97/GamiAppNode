@@ -22,7 +22,7 @@ export class GameController {
 
   public startNewGame = (req, res) => {
     try {
-      const game = this._gameUseCase.startNewGame(req.params)
+      const game = this._gameUseCase.startNewGame(req.body)
       res.status(200).send({
         status: 'OK',
         data: { data: game }

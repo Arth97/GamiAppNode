@@ -23,7 +23,7 @@ export class GameUseCase {
     }
   }
 
-  public startNewGame (gameType, challengesNumber) {
+  public startNewGame ({ gameType, challengesNumber }) {
     let game
 
     const gameBuilder = new GameBuilder()
